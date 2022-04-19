@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState  } from "react"
 
 import FormInput from "../input-form/FormInput"
 import './SignInForm.scss'
@@ -20,8 +20,7 @@ const resetFormFields = () => {
 }
 
 const signInWithGoogle = async () => {
-    const {user} = await signInWithGooglePopUp()
-    await createUserDocumentFromAuth(user)
+    await signInWithGooglePopUp() 
 }
 
  
@@ -31,17 +30,18 @@ const handleSubmit = async (event) => {
    
     
     try {
-        const response = await signInAuthUserWithEmailAndPassword(email, password)
-        console.log(response);
+        const {user} = await signInAuthUserWithEmailAndPassword(email, password)
+       
+
        resetFormFields()
         
     } catch (error) {
         switch(error.code) {
             case 'auth/wrong-password':
-                alert('incorrect password for email')
+                alert('Incorrect password for email.')
                 break
             case 'auth/user-not-found':
-                alert('no user associated with this email')
+                alert('No user associated with this email.')
                 break
             default:
                 console.log(error);

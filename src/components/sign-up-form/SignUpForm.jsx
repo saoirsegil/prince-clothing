@@ -5,6 +5,7 @@ import FormInput from "../input-form/FormInput"
 import './SignUpForm.scss'
 import Button from "../button/Button"
 
+
 const defaultFormFields = {
     displayName: '',
     email: '',
@@ -16,8 +17,6 @@ const SignUpForm = () => {
 const [formFields, setFormFields] = useState(defaultFormFields)
 const {displayName, email, password, confirmPassword} = formFields
 
-console.log(formFields);
-
 const handleSubmit = async (event) => {
     event.preventDefault()
 
@@ -27,7 +26,6 @@ const handleSubmit = async (event) => {
     }
     try {
         const {user} = await createAuthUserWithEmailAndPassword(email, password)
-      
 
         await createUserDocumentFromAuth(user, {displayName})
         
