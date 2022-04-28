@@ -1,15 +1,15 @@
 import React from 'react';
-import './CategoryItems.scss';
+import './DirectoryItems.scss';
 
-const CategoryItems = ({ category }) => {
+const DirectoryItems = ({ category }) => {
   const { imageUrl, title } = category;
   return (
-    <div className="category-container">
+    <div className="directory-item-container">
       <div
         className="background-image"
         style={{ backgroundImage: `url(${imageUrl})` }}
       />
-      <div className="category-body-container">
+      <div className="body">
         <h2>{title}</h2>
         <p>SHOP NOW</p>
       </div>
@@ -17,4 +17,4 @@ const CategoryItems = ({ category }) => {
   );
 };
 
-export default CategoryItems;
+export default DirectoryItems;
